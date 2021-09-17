@@ -21,11 +21,6 @@ public class ContaController {
 		return (ArrayList<Conta>) dao.findAll();
 	}
 
-	// @GetMapping("/contas/{numero}")
-	// public Conta RecuperarPeloNumero(@PathVariable int numero) {
-	// return dao.findById(numero).get();
-	// }
-
 	@GetMapping("/contas/{numero}")
 	public ResponseEntity<Conta> RecuperarPeloNumero(@PathVariable int numero) {
 		Conta resultado = dao.findById(numero).orElse(null);
@@ -35,4 +30,9 @@ public class ContaController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
+// @GetMapping("/contas/{numero}")
+	// public Conta RecuperarPeloNumero(@PathVariable int numero) {
+	// return dao.findById(numero).get();
+	// }
 }
